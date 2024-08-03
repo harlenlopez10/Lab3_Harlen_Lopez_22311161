@@ -1,5 +1,5 @@
-#ifndef PRODUCTOCONDESCUENTO_H
-#define PRODUCTOCONDESCUENTO_H
+#ifndef PRODUCTO_CON_DESCUENTO_H
+#define PRODUCTO_CON_DESCUENTO_H
 
 #include "Producto.h"
 #include <QTextEdit>
@@ -28,4 +28,5 @@ public:
 
     ~ProductoConDescuento() override {}
 };
-#endif // PRODUCTOCONDESCUENTO_H
+
+#endif // PRODUCTO_CON_DESCUENTO_H

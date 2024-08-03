@@ -24,11 +24,28 @@ public:
     void mostrarValorTotalInventario();
 
 private slots:
-    void on_pushButton_clicked();
+    //void on_pushButton_clicked();
 
     void on_pushButton_2_clicked();
 
     void on_pushButton_3_clicked();
+
+    void on_page1_clicked();
+
+    void on_page2_clicked();
+
+    void on_page3_clicked();
+
+    void on_btn_close_released();
+
+    void on_btn_back_clicked();
+
+
+    void on_btn_back2_clicked();
+
+    void on_btn_back3_clicked();
+
+    void on_btn_total_invent_clicked();
 
 private:
     Ui::cframe *ui;

@@ -1,5 +1,5 @@
-#ifndef PRODUCTOCONSTOCK_H
-#define PRODUCTOCONSTOCK_H
+#ifndef PRODUCTO_CON_STOCK_H
+#define PRODUCTO_CON_STOCK_H
 
 #include "Producto.h"
 #include <QTextEdit>
@@ -27,4 +27,5 @@ public:
 
     ~ProductoConStock() override {}
 };
-#endif // PRODUCTOCONSTOCK_H
+
+#endif // PRODUCTO_CON_STOCK_H

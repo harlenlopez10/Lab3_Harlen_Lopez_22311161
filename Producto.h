@@ -22,4 +22,5 @@ public:
     virtual void mostrarInformacion(QTextEdit* textEdit) const = 0;
     virtual ~Producto() {}
 };
+
 #endif // PRODUCTO_H

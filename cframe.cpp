@@ -12,9 +12,6 @@ cframe::cframe(QWidget *parent)
     , ui(new Ui::cframe)
 {
     ui->setupUi(this);
-
-    this->setWindowTitle("Laboratorio #3");
-    ui->tabWidget->setCurrentIndex(0);
 }
 
 cframe::~cframe()
@@ -22,44 +19,15 @@ cframe::~cframe()
     delete ui;
 }
 
-//MENÚ
-void cframe::on_pushButton_clicked()
-{
-    std::string opcion = "";
-
-    QMessageBox msgBox;
-    msgBox.setText("Por favor, seleccione una opción:");
-
-    QPushButton *opcion6 = msgBox.addButton("Salir", QMessageBox::ActionRole);
-    QPushButton *opcion5 = msgBox.addButton("Valor Total del Inventario", QMessageBox::ActionRole);
-    QPushButton *opcion4 = msgBox.addButton("Mostrar Producto", QMessageBox::ActionRole);
-    QPushButton *opcion3 = msgBox.addButton("Eliminar Producto", QMessageBox::ActionRole);
-    QPushButton *opcion2 = msgBox.addButton("Agregar Producto", QMessageBox::ActionRole);
-
-    msgBox.exec();
-
-    if (msgBox.clickedButton() == opcion2) {
-        ui->tabWidget->setCurrentIndex(1);
-    } else if (msgBox.clickedButton() == opcion3) {
-        ui->tabWidget->setCurrentIndex(2);
-    } else if (msgBox.clickedButton() == opcion4) {
-        ui->tabWidget->setCurrentIndex(3);
-        mostrarProducto();
-    } else if (msgBox.clickedButton() == opcion5) {
-        mostrarValorTotalInventario();
-    } else if (msgBox.clickedButton() == opcion6) {
-        this->close();
-    }
-}
 
 //FUNCIONES
 void cframe::agregarProducto() {
-    QString nombreProducto = ui->LE_Nombre->text();
-    double precio = ui->spb_Precio->value();
-    QString descripcion = ui->TE_Descripcion->toPlainText();
-    int adicional = ui->spb_Adicional->value();
+    QString nombreProducto = ui->LE_Nombre_3->text();
+    double precio = ui->spb_Precio_3->value();
+    QString descripcion = ui->TE_Descripcion_3->toPlainText();
+    int adicional = ui->spb_Adicional_3->value();
 
-    int tipoProducto = ui->comboBox_Tipo->currentIndex();
+    int tipoProducto = ui->comboBox_Tipo_3->currentIndex();
     std::unique_ptr<Producto> producto;
 
     if (tipoProducto == 0) {
@@ -88,7 +56,7 @@ void cframe::agregarProducto() {
     }
 }
 void cframe::eliminarProducto() {
-    QString nombreProducto = ui->LE_NombreEliminar->text();
+    QString nombreProducto = ui->LE_NombreEliminar_3->text();
 
     if (!nombreProducto.isEmpty()) {
         bool eliminado = inventario.eliminarProducto(nombreProducto.toStdString());
@@ -105,7 +73,7 @@ void cframe::eliminarProducto() {
 
 void cframe::mostrarProducto()
 {
-    inventario.mostrarInventario(ui->TE_ProductosLista);
+    inventario.mostrarInventario(ui->TE_ProductosLista_3);
 }
 
 void cframe::mostrarValorTotalInventario()
@@ -127,4 +95,53 @@ void cframe::on_pushButton_3_clicked()
     eliminarProducto();
 }
 
+void cframe::on_page1_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+
+}
+
+
+void cframe::on_page2_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+    mostrarProducto();
+}
+
+
+void cframe::on_page3_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+}
+
+
+void cframe::on_btn_close_released()
+{
+     QCoreApplication::quit();
+}
+
+
+void cframe::on_btn_back_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+void cframe::on_btn_back2_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+
+void cframe::on_btn_back3_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+
+void cframe::on_btn_total_invent_clicked()
+{
+    mostrarValorTotalInventario();
+}
+
+// finishted
 
